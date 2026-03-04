@@ -1,7 +1,248 @@
-/*
-    home.css: This website contains selectors only used in home.css
+/* ===============================
+   RESET
+================================ */
+* {
+  box-sizing: border-box;
+}
 
-    All pages share the styles on index.css but you should create 
-    one more css for each page that will contain the selected used 
-    on that page only (the ones not reused in other pages).
-*/
+body {
+  margin: 0;
+  background: radial-gradient(circle at top, #121826, #0b0f14);
+  font-family: "Inter", "Segoe UI", sans-serif;
+  color: #ffffff;
+}
+
+/* ===============================
+   CONTENEDOR PRINCIPAL
+================================ */
+.text-center {
+  padding: 20px;
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+/* ===============================
+   AVATAR USUARIO
+================================ */
+.welcome-image {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 12px;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+}
+
+/* ===============================
+   TÍTULOS
+================================ */
+h1 {
+  font-size: 20px;
+  margin: 10px 0 4px;
+  font-weight: 500;
+  opacity: 0.9;
+}
+
+h2 {
+  font-size: 26px;
+  margin: 0 0 10px;
+  font-weight: 700;
+}
+
+p {
+  font-size: 14px;
+  opacity: 0.75;
+  margin: 4px 0;
+}
+
+/* ===============================
+   TARJETA PROGRESO
+================================ */
+.progreso {
+  padding: 18px;
+  margin: 22px 0;
+  color: #f2f2f3;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.progreso h4 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.progreso p {
+  font-size: 18px;
+  font-weight: 800;
+}
+
+/* ===============================
+   TÍTULO EXPLORAR
+================================ */
+h1:last-of-type {
+  text-align: left;
+  font-size: 18px;
+  margin: 20px 0 14px;
+  font-weight: 600;
+}
+
+/* ===============================
+   CARDS GENERALES - ALTURA UNIFORME
+================================ */
+.seguimientoDiario,
+.rutinasDePoder,
+.recetasSaludables,
+.finanzasSaludables {
+  background: linear-gradient(180deg, #141b24, #0f141b);
+  border-radius: 22px;
+  padding: 14px;
+  margin-bottom: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.45);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+
+  
+  min-height: 140px; 
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* ===============================
+   IMÁGENES DE FONDO DE CARD
+================================ */
+.card-bg {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* ===============================
+   SUBTÍTULO CARD
+================================ */
+.seguimientoDiario h4,
+.rutinasDePoder h4,
+.recetasSaludables h4,
+.finanzasSaludables h4 {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  opacity: 0.6;
+  margin-bottom: 6px;
+}
+
+/* ===============================
+   TÍTULO PRINCIPAL CARD
+================================ */
+.seguimientoDiario p:first-of-type,
+.rutinasDePoder p:first-of-type,
+.recetasSaludables p:first-of-type,
+.finanzasSaludables p:first-of-type {
+  font-size: 18px;
+  font-weight: 700;
+  opacity: 1;
+  margin-bottom: 6px;
+}
+
+/* ===============================
+   TEXTO SECUNDARIO
+================================ */
+.seguimientoDiario p,
+.rutinasDePoder p,
+.recetasSaludables p,
+.finanzasSaludables p {
+  margin: 2px 0;
+  font-size: 13px;
+  opacity: 0.75;
+}
+
+/* ===============================
+   HOVER PREMIUM
+================================ */
+@media (hover: hover) {
+  .seguimientoDiario:hover,
+  .rutinasDePoder:hover,
+  .recetasSaludables:hover,
+  .finanzasSaludables:hover {
+    transform: translateY(-4px) scale(1.01);
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.6);
+  }
+}
+
+/* ===============================
+   RESPONSIVE (opcional)
+================================ */
+@media (max-width: 420px) {
+  .text-center {
+    padding: 12px;
+  }
+  h1 {
+    font-size: 18px;
+  }
+  h2 {
+    font-size: 22px;
+  }
+  .progreso p {
+    font-size: 16px;
+  }
+  .seguimientoDiario,
+  .rutinasDePoder,
+  .recetasSaludables,
+  .finanzasSaludables {
+    min-height: 130px; 
+  }
+}
+/* ===============================
+   TARJETA HÁBITOS SALUDABLES ESTILO DASHBOARD
+================================ */
+.habitos-card {
+  background: #1e2530;
+  border-radius: 16px;
+  padding: 16px;
+  margin-bottom: 16px;
+  color: #ffffff;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+}
+
+.habitos-card h4 {
+  font-size: 12px;
+  text-transform: uppercase;
+  opacity: 0.6;
+  margin-bottom: 6px;
+}
+
+.progress-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  margin-bottom: 6px;
+  color: #00ffad; 
+}
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background: #2d3748;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #00ffc3, #00a8ff);
+  border-radius: 4px;
+  transition: width 0.5s ease;
+}
+
+.habitos-card p {
+  font-size: 13px;
+  opacity: 0.8;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}

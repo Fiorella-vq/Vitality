@@ -1,22 +1,42 @@
-"""
-This module takes care of starting the API Server, Loading the DB and Adding the endpoints
-"""
-from flask import Flask, request, jsonify, url_for, Blueprint
+from flask import request, jsonify, Blueprint
 from api.models import db, User
-from api.utils import generate_sitemap, APIException
 from flask_cors import CORS
+from werkzeug.security import generate_password_hash
 
-api = Blueprint('api', __name__)
+api = Blueprint("api", __name__)
 
-# Allow CORS requests to this API
-CORS(api)
+@api.route("/register", methods=["POST"])
+def register():
+    data = request.get_json()
 
+    if not data:
+        return jsonify({"error": "No data provided"}), 400
 
-@api.route('/hello', methods=['POST', 'GET'])
-def handle_hello():
+    name = data.get("name")
+    last_name = data.get("last_name")
+    email = data.get("email")
+    password = data.get("password")
 
-    response_body = {
-        "message": "Hello! I'm a message that came from the backend, check the network tab on the google inspector and you will see the GET request"
-    }
+    if not all([name, last_name, email, password]):
+        return jsonify({"error": "Missing fields"}), 400
 
-    return jsonify(response_body), 200
+    if User.query.filter_by(email=email).first():
+        return jsonify({"error": "El usuario ya existe"}), 409
+
+    hashed_password = generate_password_hash(password)
+
+    new_user = User(
+        name=name,
+        last_name=last_name,
+        email=email,
+        password=hashed_password,
+        is_active=True
+    )
+
+    db.session.add(new_user)
+    db.session.commit()
+
+    return jsonify({
+        "message": "Usuario creado correctamente",
+        "user": new_user.serialize()
+    }), 201
