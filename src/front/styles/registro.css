@@ -1,0 +1,211 @@
+/* ===============================
+   FONDO GENERAL
+================================ */
+.register-bg {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+}
+
+.register-bg::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(90, 86, 86, 0.1); 
+  z-index: 1;
+}
+
+
+/*================================
+  LOGO
+================================ */
+
+.register-container .logo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 18px;
+}
+
+.register-container .logo img {
+  width: 80px; 
+  height: auto;
+}
+
+/* ===============================
+   TARJETA REGISTRO (FROSTED GLASS)
+================================ */
+.register-container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 360px;
+  padding: 28px 22px;
+
+  background: rgba(255, 255, 255, 0.15); 
+  backdrop-filter: blur(8px); 
+  -webkit-backdrop-filter: blur(12px); 
+
+  border-radius: 12px; 
+  color: #fff;
+  text-align: center;
+  box-shadow: 0 6px 20px rgba(51, 50, 50, 0.4);
+}
+/* ===============================
+   TARJETA REGISTRO
+================================ */
+.register-container {
+  width: 100%;
+  max-width: 360px;
+
+  padding: 28px 22px;
+   background: transparent;
+
+  color: #43a549;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+
+ border-color: #0f0e0e;
+  box-shadow: 0 6px 20px rgba(60, 60, 60, 0.65);
+  text-align: center;
+
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* ===============================
+   TÍTULO
+================================ */
+.register-container h3 {
+  font-size: 1rem;
+  margin-bottom: 18px;
+
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: white;
+}
+
+/* ===============================
+   FORMULARIO
+================================ */
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* ===============================
+   INPUTS
+================================ */
+.register-form input,
+.password-container input {
+  padding: 12px;
+  font-size: 0.85rem;
+
+  border: 2px solid #333;
+  border-radius: 10px;
+
+  background-color: transparent;
+  color: #f0f0f0;
+
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+
+  height: 40px; 
+  box-sizing: border-box; 
+}
+
+.register-form input:focus,
+.password-container input:focus {
+  border-color: #4fa3ff;
+  box-shadow: 0 0 6px rgba(79, 163, 255, 0.4);
+  outline: none;
+}
+
+/* ===============================
+   PASSWORD
+================================ */
+.password-container {
+  position: relative;
+  display: flex;
+  align-items: center; 
+}
+
+.password-container input {
+  flex: 1; 
+  padding-right: 40px; 
+}
+
+.toggle-password {
+  position: absolute;
+  right: 12px;
+  top: 0;
+  bottom: 0;
+
+  display: flex;
+  align-items: center;
+
+  cursor: pointer;
+  color: #777;
+  font-size: 15px;
+}
+
+.toggle-password:hover {
+  color: #4fa3ff;
+}
+
+/* ===============================
+   BOTÓN
+================================ */
+.register-form button {
+  margin-top: 8px;
+  padding: 13px 0;
+
+  font-size: 0.85rem;
+  font-weight: 700;
+
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+
+  background: rgb(29, 228, 155);
+  color: #ffffff;
+
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.08);
+}
+
+.register-form button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ===============================
+   ERRORES
+================================ */
+.error-message {
+  color: #ff4f4f;
+  font-size: 0.75rem;
+  text-align: left;
+  margin-top: -6px;
+}
+
+/* ===============================
+   ANIMACIÓN
+================================ */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
