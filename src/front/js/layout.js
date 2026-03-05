@@ -12,14 +12,13 @@ import injectContext from "./store/appContext";
 import { Footer } from "./component/footer";
 import { Registro } from "./component/registro";
 import { Login } from "./component/login";
+import { Principal } from "./component/menu";
 
-// Helper component para renderizar Footer condicionalmente
 const FooterWrapper = () => {
   const location = useLocation();
-  return location.pathname === "/" ? <Footer /> : null;
+  return location.pathname === "/menu" ? <Footer /> : null;
 };
 
-// Layout principal
 const Layout = () => {
   const basename = process.env.BASENAME || "";
 
@@ -37,6 +36,7 @@ const Layout = () => {
             <Route element={<Single />} path="/single/:theid" />
             <Route element={<Registro />} path="/registro" />
             <Route element={<Login />} path="/login" />
+            <Route element={<Principal />} path="/menu" />  
             <Route element={<h1>Not found!</h1>} />
           </Routes>
 
