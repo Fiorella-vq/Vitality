@@ -124,15 +124,28 @@ h1:last-of-type {
    SUBTÍTULO CARD
 ================================ */
 .seguimientoDiario h4,
-.rutinasDePoder h4,
-.recetasSaludables h4,
-.finanzasSaludables h4 {
+.recetasSaludables h4 {
   font-size: 11px;
   text-transform: uppercase;
-  letter-spacing: 1.2px;
-  opacity: 0.6;
-  margin-bottom: 6px;
+  letter-spacing: 1.0px;
+  opacity: 0.8;
+  margin-bottom: 3px;
+  color: #00ffad;
+  
+
 }
+
+.rutinasDePoder h4,
+.finanzasSaludables h4 {
+      font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1.0px;
+  opacity: 0.8;
+  margin-bottom: 3px;
+  color: #00a8ff;
+ 
+}
+
 
 /* ===============================
    TÍTULO PRINCIPAL CARD
@@ -141,7 +154,7 @@ h1:last-of-type {
 .rutinasDePoder p:first-of-type,
 .recetasSaludables p:first-of-type,
 .finanzasSaludables p:first-of-type {
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 700;
   opacity: 1;
   margin-bottom: 6px;
@@ -245,4 +258,15 @@ h1:last-of-type {
   display: flex;
   align-items: center;
   gap: 4px;
+}
+.seguimientoDiario,
+.rutinasDePoder,
+.recetasSaludables,
+.finanzasSaludables {
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+  align-items: flex-start;    
+  min-height: 110px;
+  padding:5px;
 }

@@ -1,15 +1,32 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import "../../styles/footer.css";
 
-const BottomNav = () => {
+export const Footer = () => {
+  const navigate = useNavigate();
+
   return (
-    <nav className="bottom-nav">
-      <Link to="/dashboard">🏠<span>Inicio</span></Link>
-      <Link to="/habits">✔<span>Hábitos</span></Link>
-      <Link to="/train">🏋️<span>Entrenar</span></Link>
-      <Link to="/recipes">🍽️<span>Recetas</span></Link>
+    <nav className="footer">
+      <button onClick={() => navigate("/dashboard")}>
+        <i className="fa-solid fa-house"></i>
+        <span>Inicio</span>
+      </button>
+      <button onClick={() => navigate("/habits")}>
+        <i className="fa-solid fa-list-check"></i>
+        <span>Hábitos</span>
+      </button>
+      <button onClick={() => navigate("/train")}>
+        <i className="fa-solid fa-dumbbell"></i>
+        <span>Entrenar</span>
+      </button>
+      <button onClick={() => navigate("/recipes")}>
+        <i className="fa-solid fa-book"></i>
+        <span>Recetas</span>
+      </button>
+      <button onClick={() => navigate("/login")}>
+        <i className="fa-solid fa-sign-out-alt"></i>
+        <span>Cerrar sesión</span>
+      </button>
     </nav>
   );
 };
-
-export default BottomNav;

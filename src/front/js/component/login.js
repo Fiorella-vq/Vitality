@@ -43,7 +43,7 @@ export const Login = () => {
           `Hola ${user.name}`,
           "success"
         ).then(() => {
-          navigate("/usuarioPages");
+          navigate("/");
         });
       } else {
         Swal.fire(

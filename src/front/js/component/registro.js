@@ -56,7 +56,7 @@ export const Registro = () => {
           "Usuario registrado e iniciado sesión.",
           "success"
         ).then(() => {
-          navigate("/usuarioPages");
+          navigate("/");
         });
       } else {
         Swal.fire(

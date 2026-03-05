@@ -32,13 +32,20 @@ export const Home = () => {
       <div className="habitos-card">
         <h4>Hábitos Saludables</h4>
         <div className="progress-info">
-          <span>{daysComplete} / {totalDays} días</span>
+          <span>
+            {daysComplete} / {totalDays} días
+          </span>
           <span>{progressPercent}% completado</span>
         </div>
         <div className="progress-bar">
-          <div className="progress-fill" style={{ width: `${progressPercent}%` }}></div>
+          <div
+            className="progress-fill"
+            style={{ width: `${progressPercent}%` }}
+          ></div>
         </div>
-        <p>✔ Nivel {level} completado! Sigue así para el Nivel {level + 1}.</p>
+        <p>
+          ✔ Nivel {level} completado! Sigue así para el Nivel {level + 1}.
+        </p>
       </div>
 
       <h1>Explorar</h1>
@@ -48,11 +55,11 @@ export const Home = () => {
         style={{ backgroundImage: `url(${Habitos})` }}
         aria-label="Hábitos"
       >
-		<div className="card-overlay">
-	<h4>Seguimiento Diario</h4>
-	<p>Nivel 1 (7) · Nivel 2 (14) · Nivel 3 (21)</p>
-		</div>
-	  </div>
+        <div className="card-overlay">
+          <h4>Seguimiento Diario</h4>
+          <p>Nivel 1 (7) · Nivel 2 (14) · Nivel 3 (21)</p>
+        </div>
+      </div>
 
       <div
         className="rutinasDePoder card-bg"
