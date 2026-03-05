@@ -1,25 +1,33 @@
 /* ===============================
-   FOOTER - BOTONES TIPO FILTRO
+   WRAPPER PARA HOME + FOOTER
+================================ */
+.page-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-bottom: 100px; /* más grande que el footer */
+}
+
+/* ===============================
+   FOOTER FIJO
 ================================ */
 .footer {
-  position: fixed;
-  bottom: 0;
+  position: fixed;  
+  bottom: 0;        
   left: 0;
   width: 100%;
-  background: #141b24; 
+  height: 70px;
+  background: #141b24;
   display: flex;
   justify-content: space-around;
-  padding: 10px 0;
-  box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.5);
-  z-index: 100;
+  align-items: center;
+  box-shadow: 0 -4px 15px rgba(0,0,0,0.5);
+  z-index: 1000;     
 }
 
 .footer button {
-  background: linear-gradient(
-    180deg,
-    #1b2330,
-    #141b24
-  ); 
+  background: linear-gradient(180deg,#1b2330,#141b24);
   border: none;
   border-radius: 14px;
   color: #aaa;
@@ -39,24 +47,15 @@
   margin-bottom: 4px;
 }
 
-.footer button.active {
-  color: #00ffc3; 
-  background: linear-gradient(180deg, #00ffc3, #00a8ff);
-  box-shadow: 0 4px 12px rgba(0, 255, 195, 0.4);
-  transform: translateY(-2px) scale(1.05);
-}
-
 .footer button:hover {
   color: #fff;
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
 }
 
-/* ===============================
-   CONTENEDOR HOME - ESPACIO PARA FOOTER
-================================ */
-.text-center {
-  padding: 20px;
-  max-width: 420px;
-  margin: 0 auto;
-  padding-bottom: 70px; }
+.footer button.active {
+  color: #00ffc3;
+  background: linear-gradient(180deg,#00ffc3,#00a8ff);
+  box-shadow: 0 4px 12px rgba(0,255,195,0.4);
+  transform: translateY(-2px) scale(1.05);
+}

@@ -5,12 +5,13 @@
   position: relative;
   min-height: 100vh;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: center; /* centra verticalmente */
+  align-items: center;     /* centra horizontalmente */
   padding: 20px;
   font-family: "Inter", "Segoe UI", sans-serif;
   color: #fff;
   text-align: center;
+  overflow: hidden;
 }
 
 /* ===============================
@@ -49,6 +50,11 @@
   z-index: 2;
   width: 100%;
   max-width: 420px;
+  margin: 0 auto;             /* centra horizontalmente */
+  display: flex;
+  flex-direction: column;      /* apila elementos verticalmente */
+  align-items: center;         /* centra elementos hijos horizontalmente */
+  text-align: center;          /* centra el texto */
 }
 
 /* ===============================
@@ -66,11 +72,24 @@
 }
 
 /* ===============================
+   H1 Y P
+================================ */
+.home-content h1 {
+  margin: 15px 0 8px 0; /* margen superior e inferior */
+  font-size: 28px;
+}
+
+.home-content p {
+  margin: 0 0 20px 0;
+  font-size: 16px;
+}
+
+/* ===============================
    LOADER
 ================================ */
 .loading-container {
   width: 60%;
-  margin: 30px auto;
+  margin: 20px auto;
 }
 
 .progress-bar {
@@ -95,6 +114,7 @@
   display: flex;
   justify-content: center;
   gap: 20px;
+  flex-wrap: wrap;
 }
 
 .btn-login,
@@ -122,14 +142,13 @@
 @media (max-width: 420px) {
   .home-container {
     padding: 12px;
-    margin-top: 0;
   }
 
-  h1 {
-    font-size: 18px;
+  .home-content h1 {
+    font-size: 20px;
   }
 
-  p {
+  .home-content p {
     font-size: 14px;
   }
 
