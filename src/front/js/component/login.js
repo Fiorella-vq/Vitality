@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { Context } from "../store/appContext";
@@ -9,6 +9,7 @@ import Logo from "../../img/vitality.png";
 const BACKEND = process.env.BACKEND_URL || "http://localhost:3001/api";
 
 export const Login = () => {
+
   const { actions } = useContext(Context);
   const navigate = useNavigate();
 
@@ -17,20 +18,37 @@ export const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
 
+  useEffect(() => {
+
+  const token = localStorage.getItem("token");
+
+  if (!token) {
+    navigate("/login");
+  }
+
+}, []);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
 
     try {
+
       const res = await fetch(`${BACKEND}/login`, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password }),
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          email,
+          password
+        })
       });
 
       const data = await res.json();
 
       if (res.ok) {
+
         const { user, token } = data;
 
         localStorage.setItem("token", token);
@@ -38,24 +56,40 @@ export const Login = () => {
 
         actions.loginUser(user, token);
 
-        Swal.fire(
-          "Bienvenido",
-          `Hola ${user.name}`,
-          "success"
-        ).then(() => {
-          navigate("/");
+        Swal.fire({
+          title: "Bienvenido",
+          text: `Hola ${user.name}`,
+          icon: "success",
+          confirmButtonColor: "#7F56D9"
+        }).then(() => {
+
+       
+          navigate("/menu", { replace: true });
+
         });
+
       } else {
-        Swal.fire(
-          "Error",
-          data.error || "Credenciales incorrectas",
-          "error"
-        );
+
+        Swal.fire({
+          title: "Error",
+          text: data.error || "Credenciales incorrectas",
+          icon: "error"
+        });
+
       }
+
     } catch (error) {
-      Swal.fire("Error", "No se pudo conectar con el servidor", "error");
+
+      Swal.fire({
+        title: "Error",
+        text: "No se pudo conectar con el servidor",
+        icon: "error"
+      });
+
     } finally {
+
       setLoading(false);
+
     }
   };
 
@@ -83,6 +117,7 @@ export const Login = () => {
           />
 
           <div className="password-container">
+
             <input
               type={showPassword ? "text" : "password"}
               placeholder="Contraseña"
@@ -90,17 +125,18 @@ export const Login = () => {
               onChange={(e) => setPassword(e.target.value)}
               required
             />
+
             <i
-              className={`fa ${
-                showPassword ? "fa-eye-slash" : "fa-eye"
-              } toggle-password`}
+              className={`fa ${showPassword ? "fa-eye-slash" : "fa-eye"} toggle-password`}
               onClick={() => setShowPassword(!showPassword)}
             ></i>
+
           </div>
 
           <button type="submit" disabled={loading}>
             {loading ? "Ingresando..." : "Ingresar"}
           </button>
+
         </form>
 
         <p className="switch-auth">
@@ -109,6 +145,7 @@ export const Login = () => {
             Registrate
           </span>
         </p>
+
       </div>
     </div>
   );

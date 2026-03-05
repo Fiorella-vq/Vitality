@@ -6,6 +6,9 @@ import { BackendURL } from "./component/backendURL";
 import { Home } from "./pages/home";
 import { Demo } from "./pages/demo";
 import { Single } from "./pages/single";
+import { Nivel1 } from "./pages/nivel1";
+import { Nivel2 } from "./pages/nivel2";
+import { Nivel3 } from "./pages/nivel3";
 import injectContext from "./store/appContext";
 
 // import { Navbar } from "./component/navbar";
@@ -13,6 +16,8 @@ import { Footer } from "./component/footer";
 import { Registro } from "./component/registro";
 import { Login } from "./component/login";
 import { Principal } from "./component/menu";
+import { Niveles } from "./component/niveles";
+
 
 const FooterWrapper = () => {
   const location = useLocation();
@@ -37,10 +42,13 @@ const Layout = () => {
             <Route element={<Registro />} path="/registro" />
             <Route element={<Login />} path="/login" />
             <Route element={<Principal />} path="/menu" />  
+              <Route element={<Niveles />} path="/niveles" />
+            <Route element={<Nivel1 />} path="/Nivel1" />
+            <Route element={<Nivel2 />} path="/Nivel2" />
+            <Route element={<Nivel3 />} path="/Nivel3" />
             <Route element={<h1>Not found!</h1>} />
           </Routes>
 
-          {/* Footer solo en "/" */}
           <FooterWrapper />
         </ScrollToTop>
       </BrowserRouter>

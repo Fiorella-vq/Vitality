@@ -5,8 +5,8 @@
   position: relative;
   min-height: 100vh;
   display: flex;
-  justify-content: center; /* centra verticalmente */
-  align-items: center;     /* centra horizontalmente */
+  justify-content: center; 
+  align-items: center;     
   padding: 20px;
   font-family: "Inter", "Segoe UI", sans-serif;
   color: #fff;
@@ -50,11 +50,11 @@
   z-index: 2;
   width: 100%;
   max-width: 420px;
-  margin: 0 auto;             /* centra horizontalmente */
+  margin: 0 auto;          
   display: flex;
-  flex-direction: column;      /* apila elementos verticalmente */
-  align-items: center;         /* centra elementos hijos horizontalmente */
-  text-align: center;          /* centra el texto */
+  flex-direction: column;      
+  align-items: center;         
+  text-align: center;          
 }
 
 /* ===============================
@@ -75,7 +75,7 @@
    H1 Y P
 ================================ */
 .home-content h1 {
-  margin: 15px 0 8px 0; /* margen superior e inferior */
+  margin: 15px 0 8px 0;
   font-size: 28px;
 }
 
